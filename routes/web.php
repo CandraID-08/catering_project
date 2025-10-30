@@ -14,3 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/about', function () {
+    return view('page.about');
+})->name('about');
+
+Route::get('/tentang', function () {
+    return view('page.tentang');
+})->name('tentang');
