@@ -1,0 +1,164 @@
+/* 🌟 MAIN NAVBAR */
+.main-navbar {
+    font-family: "Nunito", sans-serif;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+/* 🔸 TOP NAVBAR */
+.top-navbar {
+    background: linear-gradient(
+        90deg,
+        rgba(255, 123, 0, 0.8),
+        rgba(255, 166, 42, 0.8)
+    );
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+    color: #fff;
+    padding: 12px 40px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+
+.top-navbar .brand-name {
+    font-weight: 700;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.top-navbar .brand-name:hover {
+    color: #fff4cc;
+}
+
+/* 🔹 Search Bar */
+.top-navbar .form-control {
+    border-radius: 20px 0 0 20px;
+    border: none;
+    padding-left: 15px;
+}
+
+
+/* 🔹 Nav Links (Top Navbar) */
+.top-navbar .nav-link {
+    color: #fff;
+    font-weight: 500;
+    margin: 0 10px;
+    transition: all 0.3s ease;
+}
+
+.top-navbar .nav-link:hover {
+    color: #ffe6cc;
+    transform: translateY(-2px);
+}
+
+/* 🍊 SUB NAVBAR */
+.sub-navbar {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 215, 184, 0.4);
+    border-bottom: 1px solid rgba(255, 215, 184, 0.4);
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 🔹 Nav Links (Sub Navbar) */
+.sub-navbar .nav-link {
+    color: #333;
+    font-weight: 500;
+    margin: 0 15px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.sub-navbar .nav-link:hover,
+.sub-navbar .nav-link.active {
+    color: #ff7b00;
+    transform: translateY(-2px);
+}
+
+/* 🧡 RESPONSIVE */
+@media (max-width: 768px) {
+    .sub-navbar {
+        flex-direction: column;
+    }
+
+    .sub-navbar .nav-link {
+        display: block;
+        margin: 8px 0;
+        text-align: center;
+    }
+}
+
+/* ✨ Tombol Login (Top Navbar) */
+.login-btn {
+    border: 1.5px solid #fff;
+    border-radius: 20px;
+    padding: 6px 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    color: #fff !important;
+    background: transparent;
+}
+
+.login-btn:hover {
+    background: #fff;
+    color: #ff7b00 !important;
+    transform: translateY(-2px);
+}
+
+/* BODY */
+.text-orange {
+    color: #ff7b00;
+}
+
+.about-values .card {
+    transition: all 0.3s ease;
+}
+
+.about-values .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.lead {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+h1{
+    color: #ff7b00;
+}
+
+/* 🖼️ Slider Menu */
+#menuCarousel img {
+    height: 360px;
+    object-fit: cover;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(100%);
+    background-size: 60%;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    opacity: 0.8;
+}
+
+/* Responsive tweak */
+@media (max-width: 768px) {
+    #menuCarousel img {
+        height: 250px;
+    }
+}
