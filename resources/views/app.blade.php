@@ -19,9 +19,20 @@
     {{-- Navbar --}}
     @include('navbar.navbar')
 
+    {{-- Slider --}}
+    @if (Request::is('/'))
+        @include('anim.slider')
+    @endif
+
+
     <div class="container py-4">
         @yield('content')
     </div>
+
+    {{-- Kalender --}}
+    @if (Request::is('/'))
+        @include('kalender.kalender')
+    @endif
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

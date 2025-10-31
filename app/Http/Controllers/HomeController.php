@@ -11,7 +11,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $files = array_diff(scandir(public_path('assets/image')), ['.', '..']);
+        return view('home', compact('files'));
     }
 
     /**
