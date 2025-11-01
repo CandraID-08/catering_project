@@ -10,11 +10,11 @@
     </div>
 </section>
 
-<!-- 🍽️ Profil Singkat + Slider Menu -->
 <section class="about-content py-5">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-md-6 mb-4 mb-md-0">
+
+            <div class="col-md-6 mb-5 mb-md-0">
                 <div id="menuCarousel" class="carousel slide shadow-sm rounded-4 overflow-hidden" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
@@ -24,7 +24,7 @@
                             <img src="{{ asset('assets/image/tumpeng.png') }}" class="d-block w-100" alt="Menu 2">
                         </div>
                         <div class="carousel-item">
-                            <img src="{{ asset('images/menu3.jpg') }}" class="d-block w-100" alt="Menu 3">
+                            <img src="{{ asset('assets/image/menu3.jpg') }}" class="d-block w-100" alt="Menu 3">
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#menuCarousel" data-bs-slide="prev">
@@ -38,9 +38,8 @@
                 </div>
             </div>
 
-            <!-- 🧡 Teks Tentang Kami -->
-            <div class="col-md-6">
-                <h2 class="fw-bold text-orange mb-3">Siapa Kami?</h2>
+            <div class="col-md-6 ps-md-4">
+                <h2 class="fw-bold text-orange mb-3">Tentang Dapur Ibu</h2>
                 <p class="text-muted">
                     <strong>Dapur Ibu</strong> hadir untuk kamu yang ingin menikmati kelezatan masakan rumahan
                     dengan sentuhan profesional. Sejak 2017, kami telah dipercaya menangani lebih dari
@@ -51,6 +50,7 @@
                     rasa terbaik.
                 </p>
             </div>
+
         </div>
     </div>
 </section>

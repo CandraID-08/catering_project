@@ -1,6 +1,22 @@
+.btn {
+    background-color: #ff7b00;
+    color: #ffe9d5;
+}
+
+.btn:hover {
+    background: #ffffff;
+    color: #ff7b00 !important;
+    transform: translateY(-2px);
+    border-color: #ff7b00;
+}
+
+.container {
+    margin-top: 50px;
+}
+
 /* 🌟 MAIN NAVBAR */
 .main-navbar {
-    font-family: "Nunito", sans-serif;
+    font-family: "Tiktok Sans", sans-serif;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     background: rgba(255, 255, 255, 0.2);
@@ -24,7 +40,6 @@
     transition: all 0.3s ease;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
-
 
 .top-navbar .brand-name {
     font-weight: 700;
@@ -139,6 +154,7 @@ h1{
     color: #ff7b00;
 }
 
+
 /* 🖼️ Slider Menu */
 #menuCarousel img {
     height: 360px;
@@ -160,5 +176,28 @@ h1{
 @media (max-width: 768px) {
     #menuCarousel img {
         height: 250px;
+    }
+}
+
+/* ✨ Animated Gradient Background Body */
+body {
+    min-height: 100vh;
+    margin: 0;
+    font-family: "Tiktok Sans", sans-serif;
+    background: linear-gradient(270deg, #ffe9d5, #fff9f0, #ffffff);
+    background-size: 600% 600%; /* bikin gradasi lebih besar supaya terlihat bergerak */
+    animation: gradientMove 30s ease infinite;
+    transition: all 0.3s ease;
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
     }
 }

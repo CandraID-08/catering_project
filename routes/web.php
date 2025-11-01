@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PreOrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +23,9 @@ Route::get('/about', function () {
 Route::get('/tentang', function () {
     return view('page.tentang');
 })->name('tentang');
+
+Route::get('/preorder', [PreOrderController::class, 'create'])->name('preorder');
+Route::post('/preorder/store', [PreOrderController::class, 'store'])->name('preorder.store');
+
+// Route::get('/preorder', [App\Http\Controllers\PreOrderController::class, 'create'])->name('preorder');
+// Route::post('/preorder/store', [App\Http\Controllers\PreOrderController::class, 'store'])->name('preorder.store');
