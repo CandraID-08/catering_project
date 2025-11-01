@@ -11,10 +11,13 @@ return new class extends Migration
         Schema::create('pre_orders', function (Blueprint $table) {
             $table->id();
 
-             // Relasi ke tabel menu
-            $table->foreignId('menu_id')->nullable()->constrained('menu')->onDelete('set null');
+            // Relasi ke tabel menus
+            $table->foreignId('menu_id')
+                  ->nullable()
+                  ->constrained('menus')
+                  ->onDelete('set null');
 
-            // Simpan nama menu juga
+            // Menyimpan nama menu juga (backup teks)
             $table->string('menu')->nullable();
 
             $table->string('nama');
