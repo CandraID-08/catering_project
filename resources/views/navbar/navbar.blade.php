@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+
 <nav class="main-navbar shadow-sm sticky-top">
     <div class="top-navbar">
         <div class="container-fluid">
@@ -9,19 +11,28 @@
                 <div class="col-md-5 my-auto">
                     <form role="search">
                         <div class="input-group">
-                            <input type="search" placeholder="Cari riwayat pesanan..." class="form-control" />
-                            <button class="btn bg-white" type="submit">
-                                <i class="fa fa-search text-danger"></i>
-                            </button>
+                        <input
+                            type="search"
+                            placeholder="Cari riwayat pesanan..."
+                            class="form-control"
+                            style="border-top-left-radius: 20px; border-bottom-left-radius: 20px; border-right: none;"
+                        />
+                        <button  
+                            class="btnsearch"
+                            type="submit"
+                        >
+                            <i class="fa fa-search"></i>
+                        </button>
                         </div>
                     </form>
                 </div>
+
 
                 <div class="col-md-4 text-end my-auto">
                     <ul class="nav justify-content-end">
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('preorder') }}">
-                                <i class="fa fa-book"></i> Booking
+                                 Booking
                             </a>
                         </li>
                         <li class="nav-item d-none d-md-block">

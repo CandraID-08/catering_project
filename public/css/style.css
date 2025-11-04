@@ -1,15 +1,55 @@
+/* Tombol umum */
 .btn {
     background-color: #ff7b00;
     color: #ffe9d5;
-}
-
-.btn:hover {
-    background: #ffffff;
+    border: 1px solid;
+    transition: all 0.3s ease;
+  }
+  
+  .btn:hover {
+    background-color: #ffffff;
     color: #ff7b00 !important;
     transform: translateY(-2px);
     border-color: #ff7b00;
-}
-
+  }
+  
+  /* Tombol search */
+  .btnsearch {
+    background-color: #ffe9d5;
+    border: none;
+    border-left: none; /* menyatu dengan input */
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    color: #ff7b00;
+    transition: all 0.3s ease;
+  }
+  
+  .btnsearch:hover {
+    background-color: #ffffff;
+  }
+  
+  /* Input form */
+  .top-navbar .form-control {
+    border: 1px solid #ff7b00;
+    border-right: none; /* menyatu dengan tombol search */
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    padding-left: 15px;
+    transition: all 0.3s ease;
+  }
+  
+  /* Fokus input agar tetap oranye */
+  .form-control:focus {
+    box-shadow: 0 0 0 0.15rem rgba(255, 123, 0, 0.25);
+    border-color: #ff7b00;
+  }
+  
+  /* Rapiin icon search di tengah */
+  .btnsearch i {
+    padding: 0 6px;
+    font-size: 16px;
+  }
+  
 .container {
     margin-top: 50px;
 }
@@ -152,6 +192,7 @@
 
 h1{
     color: #ff7b00;
+    font-weight: 700;
 }
 
 
