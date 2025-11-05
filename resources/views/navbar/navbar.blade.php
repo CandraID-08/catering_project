@@ -5,28 +5,30 @@
         <div class="container-fluid">
             <div class="row align-items-center">
                 <div class="col-md-3 d-none d-md-block">
-                    <h5 class="brand-name m-0" href="{{ route('about') }}">Dapur Ibu</h5>
+                    <!-- ubah dari <h5 href> menjadi <a> -->
+                    <a href="{{ route('about') }}" class="text-decoration-none text-light">
+                        <h5 class="brand-name m-0">Dapur Ibu</h5>
+                    </a>
                 </div>
 
                 <div class="col-md-5 my-auto">
                     <form role="search">
                         <div class="input-group">
-                        <input
-                            type="search"
-                            placeholder="Cari riwayat pesanan..."
-                            class="form-control"
-                            style="border-top-left-radius: 20px; border-bottom-left-radius: 20px; border-right: none;"
-                        />
-                        <button  
-                            class="btnsearch"
-                            type="submit"
-                        >
-                            <i class="fa fa-search"></i>
-                        </button>
+                            <input
+                                type="search"
+                                placeholder="Cari riwayat pesanan..."
+                                class="form-control"
+                                style="border-top-left-radius: 20px; border-bottom-left-radius: 20px; border-right: none;"
+                            />
+                            <button  
+                                class="btnsearch"
+                                type="submit"
+                            >
+                                <i class="fa fa-search"></i>
+                            </button>
                         </div>
                     </form>
                 </div>
-
 
                 <div class="col-md-4 text-end my-auto">
                     <ul class="nav justify-content-end">
@@ -36,9 +38,18 @@
                             </a>
                         </li>
                         <li class="nav-item d-none d-md-block">
-                            <a class="btn btn-outline-light login-btn" href="#">
-                                <i class="fa fa-user"></i> Login
-                            </a>
+                            @if(Auth::guard('admin')->check())
+                                <form action="{{ route('admin.logout') }}" method="POST" style="display:inline;">
+                                    @csrf
+                                    <button type="submit" class="btn btn-outline-light login-btn">
+                                        <i class="fa fa-sign-out-alt"></i> Logout
+                                    </button>
+                                </form>
+                            @else
+                                <a class="btn btn-outline-light login-btn" href="{{ route('admin.login') }}">
+                                    <i class="fa fa-user"></i> Login
+                                </a>
+                            @endif
                         </li>
                     </ul>
                 </div>
