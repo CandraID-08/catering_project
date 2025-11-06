@@ -242,3 +242,34 @@ body {
         background-position: 0% 50%;
     }
 }
+/* ✨ Login Card */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.login-card {
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    padding: 40px;
+    width: 380px;
+}
+.btn-orange {
+    background-color: #ff7b00;
+    border: none;
+    color: white;
+}
+.btn-orange:hover {
+    background-color: #ff7b00;
+    color: #fff;
+}
+h3 {
+    color: #4b3832;
+}
+a {
+    color: #4b3832;
+    text-decoration: none;
+}
+a:hover {
+    color: #ff7b00;
+}

@@ -5,35 +5,15 @@
     <title>Lupa Password - Dapur Ibu</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=TikTok+Sans:opsz,wght@12..36,300..900&display=swap" rel="stylesheet">
 
-    <style>
-        body {
-            background-color: #fff7ef;
-            font-family: 'Poppins', sans-serif;
-        }
-        .card {
-            background: #ffffff;
-            border-radius: 20px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-            padding: 40px;
-            width: 380px;
-        }
-        .btn-orange {
-            background-color: #f6b26b;
-            border: none;
-            color: white;
-        }
-        .btn-orange:hover {
-            background-color: #e69138;
-        }
-        h3 {
-            color: #4b3832;
-        }
-    </style>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 <div class="d-flex justify-content-center align-items-center vh-100">
-    <div class="card text-center">
+    <div class="login-card text-center">
         <h3 class="mb-4">Lupa Password Admin</h3>
         @if(session('status'))
             <div class="alert alert-success">{{ session('status') }}</div>
