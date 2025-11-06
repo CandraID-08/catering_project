@@ -48,4 +48,26 @@ class PreOrderController extends Controller
 
         return redirect()->back()->with('success', 'Pre-order berhasil dikirim!');
     }
+
+    public function getEvents()
+{
+    $events = \App\Models\PreOrder::all();
+
+    $formattedEvents = $events->map(function($event) {
+        return [
+            'title' => $event->nama_acara . ' (' . $event->status_pembayaran . ')',
+            'start' => $event->tanggal_acara,
+            'description' => $event->nama, // nama pemesan
+            'color' => match ($event->status_pembayaran) {
+                'Lunas' => '#28a745',       // hijau
+                'DP' => '#ffc107',          // kuning
+                'Belum bayar' => '#dc3545', // merah
+                default => '#6c757d',       // abu-abu
+            },
+        ];
+    });
+
+    return response()->json($formattedEvents);
+}
+
 }

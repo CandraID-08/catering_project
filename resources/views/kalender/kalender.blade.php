@@ -19,6 +19,9 @@
             events: '/events', // ini ambil dari controller tadi
             eventDisplay: 'block',
             eventTimeFormat: { hour: '2-digit', minute: '2-digit' },
+            eventDidMount: function(info) {
+                info.el.setAttribute('title', info.event.extendedProps.description);
+            }   
         });
 
         calendar.render();
