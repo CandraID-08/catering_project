@@ -28,6 +28,11 @@ Route::get('/tentang', function () {
 
 Route::get('/preorder', [PreOrderController::class, 'create'])->name('preorder');
 Route::post('/preorder/store', [PreOrderController::class, 'store'])->name('preorder.store');
+Route::middleware(['admin'])->group(function(){
+    Route::get('/preorder/{id}', [PreOrderController::class, 'show'])->name('preorder.show');
+});
+
+
 
 // Route login admin
 Route::get('/admin/login', [AdminAuthController::class, 'showLoginForm'])->name('admin.login');

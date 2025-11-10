@@ -16,15 +16,17 @@
 
         var calendar = new FullCalendar.Calendar(calendarEl, {
             initialView: 'dayGridMonth',
-            events: '/events', // ini ambil dari controller tadi
+            events: '/events',
             eventDisplay: 'block',
             eventTimeFormat: { hour: '2-digit', minute: '2-digit' },
             eventDidMount: function(info) {
                 info.el.setAttribute('title', info.event.extendedProps.description);
-            }   
+            },
+            eventClick: function(info) {
+                window.location.href = "/preorder/" + info.event.id;
+            }
         });
 
         calendar.render();
     });
 </script>
-

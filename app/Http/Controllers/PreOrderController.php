@@ -50,24 +50,32 @@ class PreOrderController extends Controller
     }
 
     public function getEvents()
-{
-    $events = \App\Models\PreOrder::all();
-
-    $formattedEvents = $events->map(function($event) {
-        return [
-            'title' => $event->nama_acara . ' (' . $event->status_pembayaran . ')',
-            'start' => $event->tanggal_acara,
-            'description' => $event->nama, // nama pemesan
-            'color' => match ($event->status_pembayaran) {
-                'Lunas' => '#28a745',       // hijau
-                'DP' => '#ffc107',          // kuning
-                'Belum bayar' => '#dc3545', // merah
-                default => '#6c757d',       // abu-abu
-            },
-        ];
-    });
-
-    return response()->json($formattedEvents);
-}
-
-}
+    {
+        $events = \App\Models\PreOrder::all();
+    
+        $formattedEvents = $events->map(function($event) {
+            return [
+                'id' => $event->id,
+                'title' => $event->nama_acara . ' (' . $event->status_pembayaran . ')',
+                'start' => $event->tanggal_acara,
+                'description' => $event->nama,
+                'color' => match ($event->status_pembayaran) {
+                    'Lunas' => '#28a745',
+                    'DP' => '#ffc107',
+                    'Belum bayar' => '#dc3545',
+                    default => '#6c757d',
+                },
+            ];
+        });
+    
+        return response()->json($formattedEvents);
+    }
+    
+    
+    public function show($id)
+    {
+        $preorder = PreOrder::findOrFail($id);
+        return view('detailbook', compact('preorder'));
+    }
+    }
+    
