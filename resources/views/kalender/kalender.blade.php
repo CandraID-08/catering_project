@@ -1,6 +1,6 @@
 
 <div class="container py-4">
-    <h1 class="text-2xl font-semibold text-center mb-4">📅 Kalender catering</h1>
+    <h1 class="text-2xl font-semibold text-center mb-4">Kalender Dapur Ibu</h1>
 
     {{-- Bagian kalender --}}
     <div id='calendar'></div>

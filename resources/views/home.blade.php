@@ -17,9 +17,11 @@
 
     </div>
 
-    {{-- Kalender --}}
-    @if (Request::is('/'))
-        @include('kalender.kalender')
-    @endif
+    <div class="card p-4 shadow-sm">
+        {{-- Kalender --}}
+        @if (Request::is('/'))
+            @include('kalender.kalender')
+        @endif
+    </div>
 @endsection
 

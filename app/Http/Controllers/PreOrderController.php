@@ -77,5 +77,58 @@ class PreOrderController extends Controller
         $preorder = PreOrder::findOrFail($id);
         return view('detailbook', compact('preorder'));
     }
+
+    public function edit($id) {
+        $preorder = PreOrder::findOrFail($id);
+        $menu = Menu::all();
+        return view('preorder.edit', compact('preorder', 'menu'));
+    }
+    
+    public function destroy($id) {
+        $preorder = PreOrder::findOrFail($id);
+        $preorder->delete();
+        return redirect('/')->with('success', 'Pesanan berhasil dihapus.');
+    }
+    
+    public function generateNota($id) {
+        $preorder = PreOrder::findOrFail($id);
+        // logika generate nota, bisa PDF atau view
+        return view('preorder.nota', compact('preorder'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'nama' => 'required|string|max:100',
+            'menu' => 'required|string|max:100',
+            'nama_acara' => 'nullable|string|max:100',
+            'nomor_hp' => 'required|string|max:20',
+            'qty' => 'required|integer|min:1',
+            'jam_acara' => 'nullable',
+            'tanggal_acara' => 'nullable|date',
+            'status_pembayaran' => 'required|in:Lunas,DP,Belum Bayar',
+            'lokasi' => 'nullable|string|max:255',
+            'catatan' => 'nullable|string|max:255',
+        ]);
+
+        $order = \App\Models\Preorder::findOrFail($id);
+
+        $order->update($request->only([
+            'menu_id',
+            'nama',
+            'nama_acara',
+            'nomor_hp',
+            'qty',
+            'jam_acara',
+            'tanggal_acara',
+            'status_pembayaran',
+            'lokasi',
+            'catatan',
+        ]));
+        
+        return redirect()->route('home')->with('success', 'Pesanan berhasil diperbarui.');
+    }
+
+    
     }
     
