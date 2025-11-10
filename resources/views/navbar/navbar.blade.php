@@ -29,15 +29,6 @@
                 <div class="col-md-4 text-end my-auto">
                     <ul class="nav justify-content-end">
 
-                        {{-- ✅ Sebelum Login → Detail Nota --}}
-                        @if(!Auth::guard('admin')->check())
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('nota.detail') }}">
-                                Detail Nota
-                            </a>
-                        </li>
-                        @endif
-
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('preorder') }}">
                                 Booking
@@ -84,18 +75,10 @@
                     </li>
                     <li class="nav-item"><a class="nav-link" href="#">Kontak</a></li>
 
-                    {{-- ✅ Menu Khusus Admin --}}
+                    {{-- Menu Khusus Admin (Generate Nota dihapus) --}}
                     @if(Auth::guard('admin')->check())
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('admin.dashboard') }}">Data Preorder</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.data.menu') }}">Data Menu</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.generate.nota') }}">Generate Nota</a>
                         </li>
                     @endif
 
