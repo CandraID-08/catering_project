@@ -44,13 +44,31 @@ Route::get('/admin/reset-password', [AdminAuthController::class, 'showResetForm'
 Route::post('/admin/reset-password', [AdminAuthController::class, 'resetPassword'])->name('admin.password.update');
 
 Route::middleware(['auth:admin'])->group(function () {
+
+    // Dashboard (Data Preorder)
     Route::get('/admin/dashboard', [AdminDashboardController::class, 'dashboard'])->name('admin.dashboard');
+
+    // ✅ Data Menu
+    Route::get('/admin/data-menu', function () {
+        return view('admin.data-menu');
+    })->name('admin.data.menu');
+
+    // ✅ Generate Nota
+    Route::get('/admin/generate-nota', function () {
+        return view('admin.generate-nota');
+    })->name('admin.generate.nota');
+
 });
+
 Route::get('/events', [PreOrderController::class, 'getEvents']);
 Route::get('/admin/preorder/{id}/edit', [App\Http\Controllers\AdminDashboardController::class, 'edit'])->name('admin.preorder.edit');
 Route::post('/admin/preorder/{id}/update', [App\Http\Controllers\AdminDashboardController::class, 'update'])->name('admin.preorder.update');
 Route::delete('/admin/preorder/{id}/delete', [AdminDashboardController::class, 'destroy'])
     ->name('admin.preorder.destroy');
+
+Route::get('/detail-nota', function () {
+    return view('page.detail-nota');
+})->name('nota.detail');
 
 
 

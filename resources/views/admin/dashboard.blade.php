@@ -11,7 +11,7 @@
 <body class="bg-light">
 
 <div class="container py-4">
-    <h1 class="mb-4 text-center">📊 Dashboard Admin - Data Pre Order</h1>
+    <h1 class="mb-4 text-center">📊 Data Pre Order</h1>
 
     <div class="card shadow">
         <div class="card-body">
