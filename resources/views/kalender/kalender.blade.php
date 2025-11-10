@@ -1,6 +1,6 @@
 
 <div class="container py-4">
-    <h1 class="text-2xl font-semibold text-center mb-4">📅 Kalender catering</h1>
+    <h1 class="text-2xl font-semibold text-center mb-4">Kalender Dapur Ibu</h1>
 
     {{-- Bagian kalender --}}
     <div id='calendar'></div>
@@ -16,15 +16,17 @@
 
         var calendar = new FullCalendar.Calendar(calendarEl, {
             initialView: 'dayGridMonth',
-            events: '/events', // ini ambil dari controller tadi
+            events: '/events',
             eventDisplay: 'block',
             eventTimeFormat: { hour: '2-digit', minute: '2-digit' },
             eventDidMount: function(info) {
                 info.el.setAttribute('title', info.event.extendedProps.description);
-            }   
+            },
+            eventClick: function(info) {
+                window.location.href = "/preorder/" + info.event.id;
+            }
         });
 
         calendar.render();
     });
 </script>
-

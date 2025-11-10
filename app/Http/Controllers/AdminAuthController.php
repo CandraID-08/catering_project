@@ -26,7 +26,7 @@ class AdminAuthController extends Controller
 
         if ($admin && Hash::check($credentials['password'], $admin->password)) {
             Auth::guard('admin')->login($admin);
-            return redirect()->route('home'); // diarahkan ke home
+            return redirect()->route('home');
         }
 
         return back()->withErrors([

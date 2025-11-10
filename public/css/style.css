@@ -231,6 +231,13 @@ body {
     transition: all 0.3s ease;
 }
 
+html, body {
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100%;
+    overflow-x: hidden; /* ini penting karena kamu pakai 100vw sebelumnya */
+}
+
 @keyframes gradientMove {
     0% {
         background-position: 0% 50%;
@@ -273,3 +280,54 @@ a {
 a:hover {
     color: #ff7b00;
 }
+
+/* Footer wrapper */
+footer.footer {
+    display: block;
+    padding-top: 40px;
+    width: 100vw;
+    margin-left: calc(50% - 50vw); /* full bleed */
+}
+
+/* 3 kolom text footer */
+.footer-title {
+    color: #ff7b00;
+    font-weight: 700;
+}
+
+.footer-desc {
+    font-size: 14px;
+    color: #4b3832;
+}
+
+/* Links */
+.footer-links a {
+    color: #4b3832;
+    text-decoration: none;
+    transition: .3s ease;
+}
+.footer-links a:hover {
+    color: #ff7b00;
+    padding-left: 4px;
+}
+
+/* Sosmed Icons */
+.social-icons a {
+    color: #4b3832;
+    font-size: 18px;
+    transition: .3s ease;
+}
+.social-icons a:hover {
+    color: #ff7b00;
+    transform: translateY(-2px);
+}
+
+/* Bottom Bar Orange */
+.footer-bottom {
+    background: rgba(255, 123, 0, 0.8);
+    color: #fff;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    padding: 10px 0;
+}
+

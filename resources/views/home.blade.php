@@ -14,4 +14,14 @@
 
     <div class="mt-6">
         <a href="{{ route('preorder') }}" class="btn btn-primary">Booking Sekarang</a>
+
+    </div>
+
+    <div class="card p-4 shadow-sm">
+        {{-- Kalender --}}
+        @if (Request::is('/'))
+            @include('kalender.kalender')
+        @endif
+    </div>
 @endsection
+

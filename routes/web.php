@@ -28,6 +28,18 @@ Route::get('/tentang', function () {
 
 Route::get('/preorder', [PreOrderController::class, 'create'])->name('preorder');
 Route::post('/preorder/store', [PreOrderController::class, 'store'])->name('preorder.store');
+Route::middleware(['admin'])->group(function(){
+    Route::get('/preorder/{id}', [PreOrderController::class, 'show'])->name('preorder.show');
+});
+
+// route untuk edit & update preorder
+Route::prefix('preorder')->group(function () {
+    Route::get('{id}/edit', [PreOrderController::class, 'edit'])->name('preorder.edit');
+    Route::put('{id}', [PreOrderController::class, 'update'])->name('preorder.update'); // <--- ini wajib
+    Route::delete('{id}', [PreOrderController::class, 'destroy'])->name('preorder.destroy');
+    Route::get('{id}/nota', [PreOrderController::class, 'generateNota'])->name('preorder.generateNota');
+});
+
 
 // Route login admin
 Route::get('/admin/login', [AdminAuthController::class, 'showLoginForm'])->name('admin.login');
