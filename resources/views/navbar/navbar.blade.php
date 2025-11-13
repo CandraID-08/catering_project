@@ -69,7 +69,7 @@
 
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link active" href="{{ route('home') }}">Beranda</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('menu.index') }}">Menu</a></li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('about') }}">Tentang Kami</a>
                     </li>

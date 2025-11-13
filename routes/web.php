@@ -74,3 +74,17 @@ Route::delete('/admin/preorder/{id}/delete', [AdminDashboardController::class, '
 
 // Route::get('/preorder', [App\Http\Controllers\PreOrderController::class, 'create'])->name('preorder');
 // Route::post('/preorder/store', [App\Http\Controllers\PreOrderController::class, 'store'])->name('preorder.store');
+
+use App\Http\Controllers\MenuController;
+
+// publik bisa lihat semua menu
+Route::get('/menu', [MenuController::class, 'index'])->name('menu.index');
+
+// hanya admin (guard:admin) yang bisa CRUD
+Route::middleware('auth:admin')->group(function () {
+    Route::get('/menu/create', [MenuController::class, 'create'])->name('menu.create');
+    Route::post('/menu', [MenuController::class, 'store'])->name('menu.store');
+    Route::get('/menu/{id}/edit', [MenuController::class, 'edit'])->name('menu.edit');
+    Route::put('/menu/{id}', [MenuController::class, 'update'])->name('menu.update');
+    Route::delete('/menu/{id}', [MenuController::class, 'destroy'])->name('menu.destroy');
+});
