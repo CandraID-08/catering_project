@@ -23,7 +23,7 @@ class PreOrderController extends Controller
             'qty' => 'nullable|integer|min:1',
             'jam_acara' => 'nullable',
             'tanggal_acara' => 'nullable|date',
-            'status_pembayaran' => 'nullable|in:DP,Lunas,Belum bayar',
+            'status_pembayaran' => 'nullable|in:DP,Lunas',
             'lokasi' => 'nullable|string|max:255',
             'dokumentasi' => 'nullable|url',
             'catatan' => 'nullable|string',
@@ -60,9 +60,8 @@ class PreOrderController extends Controller
                 'start' => $event->tanggal_acara,
                 'description' => $event->nama,
                 'color' => match ($event->status_pembayaran) {
-                    'Lunas' => '#28a745',
-                    'DP' => '#ffc107',
-                    'Belum bayar' => '#dc3545',
+                    'lunas' => '#28a745',
+                    'dp' => '#ff7b00',
                     default => '#6c757d',
                 },
             ];
@@ -78,7 +77,8 @@ class PreOrderController extends Controller
         return view('detailbook', compact('preorder'));
     }
 
-    public function edit($id) {
+    public function edit($id)
+    {
         $preorder = PreOrder::findOrFail($id);
         $menu = Menu::all();
         return view('preorder.edit', compact('preorder', 'menu'));
@@ -100,18 +100,18 @@ class PreOrderController extends Controller
     {
         $request->validate([
             'nama' => 'required|string|max:100',
-            'menu' => 'required|string|max:100',
+            'menu_id' => 'required|exists:menus,id',
             'nama_acara' => 'nullable|string|max:100',
             'nomor_hp' => 'required|string|max:20',
             'qty' => 'required|integer|min:1',
             'jam_acara' => 'nullable',
             'tanggal_acara' => 'nullable|date',
-            'status_pembayaran' => 'required|in:Lunas,DP,Belum Bayar',
+            'status_pembayaran' => 'required|in:DP,Lunas',
             'lokasi' => 'nullable|string|max:255',
             'catatan' => 'nullable|string|max:255',
         ]);
 
-        $order = \App\Models\Preorder::findOrFail($id);
+        $order = PreOrder::findOrFail($id);
 
         $order->update($request->only([
             'menu_id',
@@ -125,10 +125,9 @@ class PreOrderController extends Controller
             'lokasi',
             'catatan',
         ]));
-        
+
         return redirect()->route('home')->with('success', 'Pesanan berhasil diperbarui.');
     }
-
     
     }
     

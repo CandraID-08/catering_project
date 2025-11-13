@@ -35,7 +35,7 @@ Route::middleware(['admin'])->group(function(){
 // route untuk edit & update preorder
 Route::prefix('preorder')->group(function () {
     Route::get('{id}/edit', [PreOrderController::class, 'edit'])->name('preorder.edit');
-    Route::put('{id}', [PreOrderController::class, 'update'])->name('preorder.update'); // <--- ini wajib
+    Route::put('/preorder/{id}', [PreOrderController::class, 'update'])->name('preorder.update');
     Route::delete('{id}', [PreOrderController::class, 'destroy'])->name('preorder.destroy');
     Route::get('{id}/nota', [PreOrderController::class, 'generateNota'])->name('preorder.generateNota');
 });
