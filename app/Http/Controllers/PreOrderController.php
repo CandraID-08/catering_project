@@ -23,7 +23,7 @@ class PreOrderController extends Controller
             'qty' => 'nullable|integer|min:1',
             'jam_acara' => 'nullable',
             'tanggal_acara' => 'nullable|date',
-            'status_pembayaran' => 'nullable|in:DP,Lunas,Belum bayar',
+            'status_pembayaran' => 'nullable|in:DP,Lunas',
             'lokasi' => 'nullable|string|max:255',
             'dokumentasi' => 'nullable|url',
             'catatan' => 'nullable|string',
@@ -62,7 +62,6 @@ class PreOrderController extends Controller
                 'color' => match ($event->status_pembayaran) {
                     'Lunas' => '#28a745',
                     'DP' => '#ffc107',
-                    'Belum bayar' => '#dc3545',
                     default => '#6c757d',
                 },
             ];

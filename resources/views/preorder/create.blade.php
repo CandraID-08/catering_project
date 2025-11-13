@@ -59,7 +59,6 @@
                 <select id="status_pembayaran" name="status_pembayaran" class="form-select">
                     <option value="DP">DP</option>
                     <option value="Lunas">Lunas</option>
-                    <option value="Belum bayar">Belum Bayar</option>
                 </select>
             </div>
 
