@@ -11,9 +11,18 @@ class HomeController extends Controller
      */
     public function index()
     {
+        // ambil file untuk slider
         $files = array_diff(scandir(public_path('assets/image')), ['.', '..']);
-        return view('home', compact('files'));
+    
+        // ambil total orderan real dari DB
+        $totalOrder = \DB::table('pre_orders') // ganti 'orders' kalau tabelmu beda
+                    ->where('status_pembayaran', 'lunas')
+                    ->count();
+    
+        // kirim ke view
+        return view('home', compact('files', 'totalOrder'));
     }
+    
 
     /**
      * Show the form for creating a new resource.

@@ -6,7 +6,7 @@
 <div class="container py-5">
     <div class="text-center mb-5">
         <h1 class="fw-bold">
-            🍲 Daftar Menu
+            Daftar Menu Catering
         </h1>
         <p class="text-muted mb-3" style="font-size: 1rem;">
             Nikmati berbagai pilihan hidangan lezat dari dapur catering kami — siap menemani setiap acara spesialmu!

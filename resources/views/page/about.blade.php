@@ -59,14 +59,35 @@
 <section class="about-price py-5 bg-light">
     <div class="container text-center">
         <h2 class="fw-bold text-orange mb-4">Harga Termasuk :</h2>
-        <ul class="list-unstyled text-muted fs-6">
-            <li>🍴 Gratis biaya pengiriman oven on the spot</li>
-            <li>🥄 Alat makan (sendok, alas cup, saos)</li>
-            <li>🍲 1 porsi free sample</li>
-            <li>🛍️ Lapak kami ditangani langsung oleh ahlinya</li>
-        </ul>
+        <div class="row g-3 justify-content-center">
+            <div class="col-md-6 col-lg-4">
+                <div class="price-item p-3 shadow-sm rounded-3 d-flex align-items-center gap-2">
+                    <span class="fs-4">🍴</span>
+                    <span>Gratis biaya pengiriman oven on the spot</span>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="price-item p-3 shadow-sm rounded-3 d-flex align-items-center gap-2">
+                    <span class="fs-4">🥄</span>
+                    <span>Alat makan (sendok, alas cup, saos)</span>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="price-item p-3 shadow-sm rounded-3 d-flex align-items-center gap-2">
+                    <span class="fs-4">🍲</span>
+                    <span>1 porsi free sample</span>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="price-item p-3 shadow-sm rounded-3 d-flex align-items-center gap-2">
+                    <span class="fs-4">🛍️</span>
+                    <span>Lapak kami ditangani langsung oleh ahlinya</span>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
+
 
 <!-- 📍 Lokasi & Event Area -->
 <section class="about-location py-5">

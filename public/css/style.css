@@ -316,3 +316,126 @@ a:hover {
     height: 200px;
     object-fit: cover;
 }
+
+/* --- HERO SLIDER --- */
+.hero-slider {
+    width: 100%;
+    height: 80vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;       /* tetap cover supaya full container */
+    object-position: center; /* pusatkan gambar secara horizontal & vertikal */
+    margin-top: -200px;
+}
+
+/* --- GRADIENT OVERLAY --- */
+.hero-gradient {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, #ff741eda, #ff741e2c);
+    z-index: 2;
+}
+
+/* --- HERO WRAPPER (geser kiri + perlebar) --- */
+.hero-content-outer {
+    position: absolute;
+    top: 50%;
+    left: 8%;
+    transform: translateY(-50%);
+    z-index: 3;
+
+    width: 55%;
+    max-width: 900px;
+}
+
+/* --- GLASSMORPHISM CONTAINER --- */
+.hero-content-wrap {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.096);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    padding: 60px 55px;
+    border-radius: 16px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* --- TEKS HERO --- */
+.hero-text {
+    color: white;
+    margin: 0px;
+}
+
+/* --- TOTAL ORDER BOX --- */
+.order-summary {
+    margin: 0px;
+    width: fit-content;
+    background: rgba(255, 255, 255, 0.12);
+    padding: 14px 18px;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+
+    color: white;
+    font-weight: 600;
+}
+
+/* --- RESPONSIVE (mobile/tablet) --- */
+@media (max-width: 992px) {
+    .hero-content-outer {
+        left: 50%;
+        width: 90%;
+        transform: translate(-50%, -50%);
+    }
+
+    .hero-content-wrap {
+        padding: 22px;
+        gap: 18px;
+    }
+
+    .order-summary {
+        width: 100%;
+    }
+}
+
+.btn-booking {
+    background-color: #ff7b00;  /* sesuaikan warna brand */
+    color: white;
+    padding: 10px 24px;
+    border: none;               /* hilangkan border */
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.151); /* shadow */
+    font-weight: 600;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-align: center;
+}
+
+/* hover effect */
+.btn-booking:hover {
+    background-color:white;
+    color: #ff7b00;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.alert-attention {
+    border-radius: 10px;
+    background-color: #fff3cd;      /* kuning lembut untuk perhatian */
+    color: #974900;                 /* teks kontras */
+    border: 1px solid #ffeeba;     /* border sesuai alert bootstrap */
+    font-size: 15px;
+    line-height: 1.5;
+}
+
