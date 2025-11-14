@@ -1,5 +1,3 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
-
 <nav class="main-navbar shadow-sm sticky-top">
     <div class="top-navbar">
         <div class="container-fluid">
@@ -28,9 +26,8 @@
 
                 <div class="col-md-4 text-end my-auto">
                     <ul class="nav justify-content-end">
-
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('preorder') }}">
+                            <a class="nav-link {{ request()->routeIs('preorder*') ? 'active' : '' }}" href="{{ route('preorder') }}">
                                 Booking
                             </a>
                         </li>
@@ -68,20 +65,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link active" href="{{ route('home') }}">Beranda</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('menu.index') }}">Menu</a></li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('about') }}">Tentang Kami</a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="#">Kontak</a></li>
-
-                    {{-- Menu Khusus Admin (Generate Nota dihapus) --}}
-                    @if(Auth::guard('admin')->check())
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.dashboard') }}">Data Preorder</a>
-                        </li>
-                    @endif
-
+                    <li class="nav-item"><a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}" href="{{ route('home') }}">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link {{ request()->routeIs('menu*') ? 'active' : '' }}" href="{{ route('menu.index') }}">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}" href="{{ route('about') }}">Tentang Kami</a></li>
+                    <li class="nav-item"><a class="nav-link {{ request()->routeIs('contact') ? 'active' : '' }}" href="#">Kontak</a></li>
                 </ul>
 
             </div>

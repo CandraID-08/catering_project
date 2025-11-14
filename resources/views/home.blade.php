@@ -1,10 +1,9 @@
 @extends('app')
 
-@section('title', 'Catering Home')
+@section('title', 'Beranda Dapur Ibu Catering')
 
 @section('content')
 
-    <div class="position-relative">
     @if (Request::is('/'))
         @include('anim.slider')
     @endif
@@ -24,4 +23,3 @@
         @endif
     </div>
 @endsection
-
