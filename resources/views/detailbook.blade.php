@@ -4,6 +4,15 @@
 
 @section('content')
 <div class="container py-4">
+
+    {{-- ===== ALERT JIKA QTY DI BAWAH 10 ===== --}}
+    @if($preorder->qty < 10)
+    <div class="alert alert-danger">
+        <strong>Perhatian!</strong> Jumlah pesanan kurang dari <strong>10</strong>. Minimal pemesanan adalah 10 porsi.
+    </div>
+    @endif
+    {{-- ======================================= --}}
+
     <h2 class="mb-4" style="font-size: 1.75rem; font-weight: 600;">Detail Pesanan</h2>
 
     <div class="row g-3">
@@ -39,10 +48,14 @@
 
         <!-- Qty -->
         <div class="col-md-4">
-            <div class="card shadow-sm">
+            <div class="card shadow-sm border 
+                @if($preorder->qty < 10) border-danger @endif">
                 <div class="card-body">
                     <h6 class="card-title">Qty</h6>
-                    <p class="card-text">{{ $preorder->qty }}</p>
+                    <p class="card-text 
+                        @if($preorder->qty < 10) text-danger fw-bold @endif">
+                        {{ $preorder->qty }}
+                    </p>
                 </div>
             </div>
         </div>

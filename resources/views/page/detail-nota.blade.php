@@ -1,1 +1,0 @@
-<h2>Halaman Detail Nota</h2>

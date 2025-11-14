@@ -20,7 +20,7 @@ class PreOrderController extends Controller
         $request->validate([
             'nama' => 'required|string|max:255',
             'menu_id' => 'required|exists:menus,id',
-            'qty' => 'nullable|integer|min:1',
+            'qty' => 'required|integer|min:10', // MINIMAL 10
             'jam_acara' => 'nullable',
             'tanggal_acara' => 'nullable|date',
             'status_pembayaran' => 'nullable|in:DP,Lunas',
@@ -33,7 +33,7 @@ class PreOrderController extends Controller
 
         PreOrder::create([
             'menu_id' => $request->menu_id,
-            'menu' => $menu->nama_menu, // backup nama menu
+            'menu' => $menu->nama_menu, 
             'nama' => $request->nama,
             'nama_acara' => $request->nama_acara,
             'nomor_hp' => $request->nomor_hp,
@@ -70,7 +70,6 @@ class PreOrderController extends Controller
         return response()->json($formattedEvents);
     }
     
-    
     public function show($id)
     {
         $preorder = PreOrder::findOrFail($id);
@@ -92,7 +91,6 @@ class PreOrderController extends Controller
     
     public function generateNota($id) {
         $preorder = PreOrder::findOrFail($id);
-        // logika generate nota, bisa PDF atau view
         return view('preorder.nota', compact('preorder'));
     }
 
@@ -103,7 +101,7 @@ class PreOrderController extends Controller
             'menu_id' => 'required|exists:menus,id',
             'nama_acara' => 'nullable|string|max:100',
             'nomor_hp' => 'required|string|max:20',
-            'qty' => 'required|integer|min:1',
+            'qty' => 'required|integer|min:10', // MINIMAL 10
             'jam_acara' => 'nullable',
             'tanggal_acara' => 'nullable|date',
             'status_pembayaran' => 'required|in:DP,Lunas',
@@ -129,5 +127,4 @@ class PreOrderController extends Controller
         return redirect()->route('home')->with('success', 'Pesanan berhasil diperbarui.');
     }
     
-    }
-    
+}
