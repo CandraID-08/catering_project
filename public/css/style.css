@@ -281,56 +281,36 @@ a:hover {
     color: #ff7b00;
 }
 
-/* Footer wrapper */
-footer.footer {
-    display: block;
-    padding-top: 40px;
-    width: 100vw;
-    margin-left: calc(50% - 50vw); /* full bleed */
-}
-
-/* 3 kolom text footer */
-.footer-title {
-    color: #ff7b00;
-    font-weight: 700;
-}
-
-.footer-desc {
-    font-size: 14px;
-    color: #4b3832;
-}
-
-/* Links */
-.footer-links a {
-    color: #4b3832;
+.footer-link {
+    color: #ccc;
     text-decoration: none;
-    transition: .3s ease;
-}
-.footer-links a:hover {
-    color: #ff7b00;
-    padding-left: 4px;
+    font-size: 0.95rem;
+    transition: color 0.3s;
 }
 
-/* Sosmed Icons */
-.social-icons a {
-    color: #4b3832;
-    font-size: 18px;
-    transition: .3s ease;
-}
-.social-icons a:hover {
-    color: #ff7b00;
-    transform: translateY(-2px);
+.footer-link:hover {
+    color: #ff7f32;
 }
 
-/* Bottom Bar Orange */
-.footer-bottom {
-    background: rgba(255, 123, 0, 0.8);
-    color: #fff;
-    width: 100vw;
-    margin-left: calc(50% - 50vw);
-    padding: 10px 0;
+.social-link {
+    color: #ccc;
+    font-size: 1.2rem;
+    transition: 0.3s;
 }
 
+.social-link:hover {
+    color: #ff7f32;
+    transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+    .footer {
+        text-align: center;
+    }
+    .social-link {
+        font-size: 1.3rem;
+    }
+}
 .card-img-top {
     width: 100%;
     height: 200px;
