@@ -63,6 +63,7 @@ Route::middleware(['auth:admin'])->group(function () {
 });
 
 Route::get('/events', [PreOrderController::class, 'getEvents']);
+
 Route::get('/admin/preorder/{id}/edit', [App\Http\Controllers\AdminDashboardController::class, 'edit'])->name('admin.preorder.edit');
 Route::post('/admin/preorder/{id}/update', [App\Http\Controllers\AdminDashboardController::class, 'update'])->name('admin.preorder.update');
 Route::delete('/admin/preorder/{id}/delete', [AdminDashboardController::class, 'destroy'])

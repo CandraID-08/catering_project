@@ -8,23 +8,9 @@
                     </a>
                 </div>
 
-                <div class="col-md-5 my-auto">
-                    <form role="search">
-                        <div class="input-group">
-                            <input
-                                type="search"
-                                placeholder="Cari riwayat pesanan..."
-                                class="form-control"
-                                style="border-top-left-radius: 20px; border-bottom-left-radius: 20px; border-right: none;"
-                            />
-                            <button class="btnsearch" type="submit">
-                                <i class="fa fa-search"></i>
-                            </button>
-                        </div>
-                    </form>
-                </div>
+<div class="col-md-6"></div>
 
-                <div class="col-md-4 text-end my-auto">
+                <div class="col-md-3 text-end my-auto">
                     <ul class="nav justify-content-end">
                         <li class="nav-item">
                             <a class="nav-link {{ request()->routeIs('preorder*') ? 'active' : '' }}" href="{{ route('preorder') }}">

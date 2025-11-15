@@ -58,8 +58,11 @@ class PreOrderController extends Controller
                 'id' => $event->id,
                 'title' => $event->nama_acara . ' (' . $event->status_pembayaran . ')',
                 'start' => $event->tanggal_acara,
-                'description' => $event->nama,
-                'color' => match ($event->status_pembayaran) {
+                'extendedProps' => [
+                    'description' => $event->nama,
+                    'status' => strtolower($event->status_pembayaran), // dp / lunas
+                ],
+                'color' => match (strtolower($event->status_pembayaran)) {
                     'lunas' => '#28a745',
                     'dp' => '#ff7b00',
                     default => '#6c757d',
