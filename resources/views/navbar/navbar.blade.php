@@ -3,7 +3,7 @@
         <div class="container-fluid">
             <div class="row align-items-center">
                 <div class="col-md-3 d-none d-md-block">
-                    <a href="{{ route('about') }}" class="text-decoration-none text-light">
+                    <a href="{{ route('home') }}" class="text-decoration-none text-light">
                         <h5 class="brand-name m-0">Dapur Ibu</h5>
                     </a>
                 </div>
@@ -26,12 +26,27 @@
 
                 <div class="col-md-4 text-end my-auto">
                     <ul class="nav justify-content-end">
+
+                        {{-- Booking --}}
                         <li class="nav-item">
                             <a class="nav-link {{ request()->routeIs('preorder*') ? 'active' : '' }}" href="{{ route('preorder') }}">
                                 Booking
                             </a>
                         </li>
 
+                        {{-- Approve (Admin only) --}}
+                        <li class="nav-item">
+                            @if(Auth::guard('admin')->check())
+                                <a class="nav-link {{ request()->routeIs('preorder.listApprove') ? 'active' : '' }}" href="{{ route('preorder.listApprove') }}">
+                                    Approve
+                                    @if($pendingCount > 0)
+                                        <span class="badge bg-danger ms-1">{{ $pendingCount }}</span>
+                                    @endif
+                                </a>
+                            @endif
+                        </li>
+
+                        {{-- Login / Logout --}}
                         <li class="nav-item d-none d-md-block">
                             @if(Auth::guard('admin')->check())
                                 <form action="{{ route('admin.logout') }}" method="POST" style="display:inline;">
@@ -46,6 +61,7 @@
                                 </a>
                             @endif
                         </li>
+
                     </ul>
                 </div>
 
@@ -53,6 +69,7 @@
         </div>
     </div>
 
+    {{-- Sub-navbar --}}
     <nav class="navbar navbar-expand-lg sub-navbar">
         <div class="container-fluid">
             <a class="navbar-brand d-md-none" href="{{ route('home') }}">Dapur Ibu</a>
@@ -63,14 +80,12 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}" href="{{ route('home') }}">Beranda</a></li>
                     <li class="nav-item"><a class="nav-link {{ request()->routeIs('menu*') ? 'active' : '' }}" href="{{ route('menu.index') }}">Menu</a></li>
                     <li class="nav-item"><a class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}" href="{{ route('about') }}">Tentang Kami</a></li>
                     <li class="nav-item"><a class="nav-link {{ request()->routeIs('contact') ? 'active' : '' }}" href="#">Kontak</a></li>
                 </ul>
-
             </div>
         </div>
     </nav>

@@ -12,7 +12,11 @@ class PreOrder extends Model
     protected $fillable = [
         'menu_id', 'menu', 'nama', 'nama_acara', 'nomor_hp',
         'qty', 'jam_acara', 'tanggal_acara', 'status_pembayaran',
-        'lokasi', 'dokumentasi', 'catatan'
+        'lokasi', 'dokumentasi', 'catatan', 'status_approve'
+    ];
+
+    protected $casts = [
+        'status_approve' => 'boolean',
     ];
 
     public function menu()
