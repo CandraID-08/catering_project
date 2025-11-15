@@ -1,3 +1,20 @@
+#results {
+    background-color: #fff; /* putih */
+    /* border: 1px solid #fadc84; */
+    border-radius: 10px;
+    max-height: 200px; /* kalau banyak item, scroll saja */
+    overflow-y: auto;
+    width: 100%; 
+    box-shadow: 0 4px 8px rgba(255, 201, 130, 0.949);
+}
+
+#results li:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+
+
 /* Tombol umum */
 .btn {
     background-color: #ff7b00;
