@@ -132,7 +132,7 @@
             <button type="submit" class="btn btn-danger">Hapus</button>
         </form>
 
-        <a href="{{ route('preorder.generateNota', $preorder->id) }}" class="btn btn-success">Generate Nota</a>
+        <a href="{{ route('preorder.generateNotaPDF', $preorder->id) }}" class="btn btn-success">Download Nota PDF</a>
 
         <a href="/" class="btn btn-warning ms-auto">Kembali</a>
     </div>
