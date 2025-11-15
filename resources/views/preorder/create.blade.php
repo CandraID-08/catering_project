@@ -1,11 +1,16 @@
 @extends('app')
 
-@section('content')
+@section('title', 'Pre-Order Catering Dapur Ibu')
 
+@section('content')
 <div class="container py-5">
+
     <h1 class="mb-4 text-center fw-bold">Form Pre-Order Catering Dapur Ibu</h1>
 
-    <form action="{{ route('preorder.store') }}" method="POST" class="card p-4 shadow-sm">
+    {{-- ALERT CLIENT-SIDE --}}
+    <div id="errorAlert" class="alert alert-danger text-center mt-3 d-none"></div>
+
+    <form id="preorderForm" action="{{ route('preorder.store') }}" method="POST" class="card p-4 shadow-sm">
         @csrf
 
         <div class="row">
@@ -26,7 +31,6 @@
         </div>
 
         <div class="row">
-            {{-- pilih menu --}}
             <div class="col-md-4 mb-3">
                 <label for="menu" class="form-label">Pilih Menu</label>
                 <select id="menu" name="menu_id" class="form-select" required>
@@ -78,12 +82,70 @@
             <textarea id="catatan" name="catatan" class="form-control" rows="3"></textarea>
         </div>
 
-        <button type="submit" class="btn w-100">Konfirmasi</button>
+        <button type="submit" class="btn w-100 btn-warning">Konfirmasi</button>
     </form>
 
     @if(session('success'))
-        <div class="alert alert-success mt-3">{{ session('success') }}</div>
+        <div id="successAlert" class="alert alert-success text-center mt-3">{{ session('success') }}</div>
     @endif
 </div>
+@endsection
 
+@section('scripts')
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('preorderForm');
+    const qty = document.getElementById('qty');
+    const tanggal = document.getElementById('tanggal_acara');
+    const errorAlert = document.getElementById('errorAlert');
+    const successAlert = document.getElementById('successAlert');
+
+    let bookedDates = {};
+    let dataReady = false;
+
+    // ambil tanggal yang sudah penuh (3 acara)
+    fetch('/events')
+        .then(res => res.json())
+        .then(data => {
+            data.forEach(ev => {
+                bookedDates[ev.start] = (bookedDates[ev.start] || 0) + 1;
+            });
+            dataReady = true;
+        })
+        .catch(err => console.error('Error fetch events:', err));
+
+    // scroll ke success alert jika ada
+    if(successAlert){
+        successAlert.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    form.addEventListener('submit', function(e) {
+        if (!dataReady) {
+            e.preventDefault();
+            alert("Mohon tunggu, data tanggal sedang dimuat...");
+            return;
+        }
+
+        errorAlert.classList.add('d-none');
+        let errors = [];
+
+        if (parseInt(qty.value) < 10) {
+            errors.push("Jumlah minimal 10.");
+        }
+
+        if (tanggal.value && bookedDates[tanggal.value] >= 3) {
+            errors.push("Tanggal ini sudah penuh, silakan pilih tanggal lain.");
+        }
+
+        if (errors.length > 0) {
+            e.preventDefault();
+            errorAlert.innerHTML = errors.join('<br>');
+            errorAlert.classList.remove('d-none');
+
+            // scroll ke error alert
+            errorAlert.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    });
+});
+</script>
 @endsection

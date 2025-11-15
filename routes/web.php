@@ -89,3 +89,15 @@ Route::middleware('auth:admin')->group(function () {
     Route::put('/menu/{id}', [MenuController::class, 'update'])->name('menu.update');
     Route::delete('/menu/{id}', [MenuController::class, 'destroy'])->name('menu.destroy');
 });
+
+// Tambahan routes admin yang belum ada
+Route::middleware(['auth:admin'])->group(function () {
+    // List preorder untuk di-approve
+    Route::get('/admin/preorder/approve', [PreOrderController::class, 'listForApprove'])->name('preorder.listApprove');
+
+    // Approve preorder
+    Route::get('/admin/preorder/{id}/approve', [PreOrderController::class, 'approve'])->name('preorder.approve');
+
+    // Generate PDF nota
+    Route::get('/admin/preorder/{id}/nota/pdf', [PreOrderController::class, 'generateNotaPDF'])->name('preorder.generateNotaPDF');
+});

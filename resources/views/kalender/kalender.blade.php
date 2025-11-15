@@ -65,23 +65,53 @@ function applyFilter() {
 }
 
 // Pasang listener toggle untuk masing-masing tombol
+// document.querySelectorAll('.filter-btn').forEach(btn => {
+//     btn.addEventListener('click', function() {
+//         const status = btn.dataset.status.toLowerCase(); // dp / lunas / all
+
+//         if (status === 'lunas') {
+//             showLunas = !showLunas;
+//             btn.classList.toggle('active', showLunas);
+
+//         } else if (status === 'dp') {
+//             showDP = !showDP;
+//             btn.classList.toggle('active', showDP);
+
+//         } else if (status === 'all') {
+//             showDP = true;
+//             showLunas = true;
+
+//             // reset warna tombol
+//             document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+//         }
+
+//         applyFilter();
+//     });
+// });
 document.querySelectorAll('.filter-btn').forEach(btn => {
     btn.addEventListener('click', function() {
         const status = btn.dataset.status.toLowerCase(); // dp / lunas / all
-        if(status === 'lunas') {
-            showDP = !showDP;
-            btn.classList.toggle('active', showDP);
-        } else if(status === 'dp') {
-            showLunas = !showLunas;
-            btn.classList.toggle('active', showLunas);
-        } else if(status === 'all') {
-            showDP = true;
+
+        if (status === 'lunas') {
+            showDP = false;       
+            showLunas = true;     
+        } else if (status === 'dp') {
+            showDP = true;        
+            showLunas = false;    
+        } else if (status === 'all') {
+            showDP = true;        
             showLunas = true;
-            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         }
+
+        // update warna tombol active
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
         applyFilter();
     });
 });
+
+
 
 
 
