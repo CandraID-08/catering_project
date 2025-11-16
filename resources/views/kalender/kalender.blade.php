@@ -6,11 +6,18 @@
         <ul id="results" class="list-group position-absolute z-10"></ul>
     </div>
 
-    <div class="mt-2">
-        <button class="btn btn-sm btn-primary filter-btn" data-status="all">Semua</button>
-        <button class="btn btn-sm btn-warning filter-btn" data-status="DP">DP</button>
-        <button class="btn btn-sm btn-success filter-btn" data-status="Lunas">Lunas</button>
-    </div>
+    @if(Auth::guard('admin')->check())
+        <div class="mt-3">
+            <label class="fw-semibold mb-2 d-block" style="font-size: 14px;">
+                Filter Status Pembayaran :
+            </label>
+
+            <button class="btn btn-sm btn-primary filter-btn" data-status="all">Semua</button>
+            <button class="btn btn-sm btn-warning filter-btn" data-status="DP">DP</button>
+            <button class="btn btn-sm btn-success filter-btn" data-status="Lunas">Lunas</button>
+        </div>
+        @endif
+
 
     <div id='calendar'></div>
 
@@ -65,53 +72,23 @@ function applyFilter() {
 }
 
 // Pasang listener toggle untuk masing-masing tombol
-// document.querySelectorAll('.filter-btn').forEach(btn => {
-//     btn.addEventListener('click', function() {
-//         const status = btn.dataset.status.toLowerCase(); // dp / lunas / all
-
-//         if (status === 'lunas') {
-//             showLunas = !showLunas;
-//             btn.classList.toggle('active', showLunas);
-
-//         } else if (status === 'dp') {
-//             showDP = !showDP;
-//             btn.classList.toggle('active', showDP);
-
-//         } else if (status === 'all') {
-//             showDP = true;
-//             showLunas = true;
-
-//             // reset warna tombol
-//             document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-//         }
-
-//         applyFilter();
-//     });
-// });
 document.querySelectorAll('.filter-btn').forEach(btn => {
     btn.addEventListener('click', function() {
         const status = btn.dataset.status.toLowerCase(); // dp / lunas / all
-
-        if (status === 'lunas') {
-            showDP = false;       
-            showLunas = true;     
-        } else if (status === 'dp') {
-            showDP = true;        
-            showLunas = false;    
-        } else if (status === 'all') {
-            showDP = true;        
+        if(status === 'lunas') {
+            showDP = !showDP;
+            btn.classList.toggle('active', showDP);
+        } else if(status === 'dp') {
+            showLunas = !showLunas;
+            btn.classList.toggle('active', showLunas);
+        } else if(status === 'all') {
+            showDP = true;
             showLunas = true;
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         }
-
-        // update warna tombol active
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-
         applyFilter();
     });
 });
-
-
 
 
 
@@ -119,25 +96,30 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
     const fuse = new Fuse(events, { keys: ['title'], threshold: 0.3 });
 
     searchInput.addEventListener('input', function() {
-        const query = searchInput.value.trim();
-        if(!query) {
-            resultsEl.innerHTML = '';
-            return;
-        }
+    const query = searchInput.value.trim();
+    if(!query) {
+        resultsEl.innerHTML = '';
+        return;
+    }
 
-        const results = fuse.search(query).slice(0, 5);
-        resultsEl.innerHTML = results.map(r => 
-            `<li class="list-group-item-action" data-date="${r.item.start}">${r.item.title}</li>`
-        ).join('');
+    const results = fuse.search(query).slice(0, 5);
 
-        resultsEl.querySelectorAll('li').forEach(li => {
-            li.addEventListener('click', function() {
-                calendar.gotoDate(li.dataset.date);
-                resultsEl.innerHTML = '';
-                searchInput.value = li.textContent;
-            });
+    resultsEl.innerHTML = results.map(r => 
+        `<li class="list-group-item list-group-item-action"
+             data-id="${r.item.id}">
+             ${r.item.title}
+        </li>`
+    ).join('');
+
+    // klik → langsung ke route preorder/{id}
+    resultsEl.querySelectorAll('li').forEach(li => {
+        li.addEventListener('click', function() {
+            const id = li.dataset.id;
+            window.location.href = `/preorder/${id}`;
         });
     });
+});
+
 
 });
 </script>
