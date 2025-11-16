@@ -37,7 +37,7 @@
                             @if(Auth::guard('admin')->check())
                                 <form action="{{ route('admin.logout') }}" method="POST" style="display:inline;">
                                     @csrf
-                                    <button type="submit" class="btn btn-outline-light login-btn">
+                                    <button type="submit" class="btn btn-outline-light login-btn d-flex align-items-center gap-2">
                                         <i class="fa fa-sign-out-alt"></i> Logout
                                     </button>
                                 </form>

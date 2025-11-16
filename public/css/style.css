@@ -83,6 +83,13 @@
     z-index: 999;
 }
 
+.main-navbar .nav {
+    align-items: center;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 3px; /* biar rapi */
+}
+
 /* 🔸 TOP NAVBAR */
 .top-navbar {
     background: linear-gradient(
@@ -456,3 +463,53 @@ a:hover {
     line-height: 1.5;
 }
 
+ /* Search box */
+ #search {
+    border-radius: 20px !important;
+    padding: 10px 15px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* Dropdown search result */
+#results {
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin-top: 5px;
+}
+
+#results li {
+    padding: 10px 12px;
+    cursor: pointer;
+    list-style: none;
+}
+
+#results li:hover {
+    background: #f5f5f5;
+}
+
+/* Filter button state */
+.filter-btn {
+    border-radius: 20px;
+    margin-right: 5px;
+    padding: 6px 14px;
+    font-size: 13px;
+    transition: 0.2s;
+}
+
+.filter-btn.active {
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+    transform: translateY(-1px);
+}
+
+/* Calendar spacing */
+#calendar {
+    margin-top: 20px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
