@@ -101,3 +101,7 @@ Route::middleware(['auth:admin'])->group(function () {
     // Generate PDF nota
     Route::get('/admin/preorder/{id}/nota/pdf', [PreOrderController::class, 'generateNotaPDF'])->name('preorder.generateNotaPDF');
 });
+
+Route::get('/preorder/success', function () {
+    return view('preorder.success');
+})->name('preorder.success');

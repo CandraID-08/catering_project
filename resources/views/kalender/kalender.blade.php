@@ -1,12 +1,13 @@
 <div class="container py-4">
     <h1 class="text-2xl font-semibold text-center mb-4">Kalender Dapur Ibu</h1>
 
+    @if(Auth::guard('admin')->check())
     <div class="mb-4" style="position: relative;">
         <input type="text" id="search" placeholder="Cari nama acara..." class="form-control" style="border-radius: 20px;">
         <ul id="results" class="list-group position-absolute z-10"></ul>
     </div>
 
-    @if(Auth::guard('admin')->check())
+
         <div class="mt-3">
             <label class="fw-semibold mb-2 d-block" style="font-size: 14px;">
                 Filter Status Pembayaran :

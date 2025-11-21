@@ -60,7 +60,25 @@ class PreOrderController extends Controller
             'status_approve' => false,
         ]);
 
-        return redirect()->back()->with('success', 'Pre-order berhasil dikirim! Menunggu konfirmasi admin.');
+
+        // buat template pesan WA
+        $pesanWA = urlencode(
+            "Halo Admin, saya ingin konfirmasi pre-order.\n\n" .
+            "Nama Pemesan: {$request->nama}\n" .
+            "Nama Acara: {$request->nama_acara}\n" .
+            "Tanggal: {$request->tanggal_acara}\n" .
+            "Jam: {$request->jam_acara}\n" .
+            "Menu: {$menu->nama_menu}\n" .
+            "Jumlah: {$request->qty}\n" .
+            "Lokasi: {$request->lokasi}\n\n" .
+            "Mohon dikonfirmasi ya, terima kasih!"
+        );
+
+        return redirect()->back()->with([
+            'success' => 'Pre-order berhasil dikirim! Menunggu konfirmasi admin.',
+            'wa_message' => $pesanWA
+        ]);
+
     }
 
     // Get events untuk kalender
