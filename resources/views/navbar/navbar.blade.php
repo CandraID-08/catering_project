@@ -70,7 +70,6 @@
                     <li class="nav-item"><a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}" href="{{ route('home') }}">Beranda</a></li>
                     <li class="nav-item"><a class="nav-link {{ request()->routeIs('menu*') ? 'active' : '' }}" href="{{ route('menu.index') }}">Menu</a></li>
                     <li class="nav-item"><a class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}" href="{{ route('about') }}">Tentang Kami</a></li>
-                    <li class="nav-item"><a class="nav-link {{ request()->routeIs('contact') ? 'active' : '' }}" href="#">Kontak</a></li>
                 </ul>
             </div>
         </div>

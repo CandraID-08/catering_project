@@ -86,8 +86,27 @@
     </form>
 
     @if(session('success'))
-        <div id="successAlert" class="alert alert-success text-center mt-3">{{ session('success') }}</div>
-    @endif
+    <div id="successAlert" class="alert alert-success text-center mt-3">
+
+        {{ session('success') }}
+
+        @php
+            $nomorAdmin = '628999184687'; // ganti nomor admin
+        @endphp
+
+        <div class="mt-3">
+            <a href="https://wa.me/{{ $nomorAdmin }}?text={{ session('wa_message') }}"
+               class="btn btn-success"
+               target="_blank">
+               Konfirmasi via WhatsApp
+            </a>
+        </div>
+
+    </div>
+@endif
+
+
+
 </div>
 @endsection
 
