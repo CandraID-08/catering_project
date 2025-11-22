@@ -91,7 +91,7 @@
         {{ session('success') }}
 
         @php
-            $nomorAdmin = '628999184687'; // ganti nomor admin
+            $nomorAdmin = '628999184687'; // nomor admin
         @endphp
 
         <div class="mt-3">
