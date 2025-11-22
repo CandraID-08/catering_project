@@ -43,7 +43,7 @@
     <div class="alert-text">
         <strong>Perhatian!</strong> Anda dapat memesan catering dengan tombol 
         <span class="fw-bold">"Booking Sekarang"</span>. 
-        Pastikan tanggal yang dipilih <span class="fw-semibold text-dark">belum mencapai  acara</span> 
+        Pastikan tanggal yang dipilih <span class="fw-semibold text-dark">belum mencapai 3 acara</span> 
         dan pesanan minimal <span class="fw-semibold text-dark">10 pcs per order</span>.
     </div>
 </div>
