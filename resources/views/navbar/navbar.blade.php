@@ -2,20 +2,22 @@
     <div class="top-navbar">
         <div class="container-fluid">
             <div class="row align-items-center">
+
                 <div class="col-md-3 d-none d-md-block">
                     <a href="{{ route('home') }}" class="text-decoration-none text-light">
                         <h5 class="brand-name m-0">Dapur Ibu</h5>
                     </a>
                 </div>
 
-<div class="col-md-6"></div>
+                <div class="col-md-6"></div>
 
                 <div class="col-md-3 text-end my-auto">
                     <ul class="nav justify-content-end">
 
                         {{-- Booking --}}
                         <li class="nav-item">
-                            <a class="nav-link {{ request()->routeIs('preorder*') ? 'active' : '' }}" href="{{ route('preorder') }}">
+                            <a class="nav-link {{ request()->routeIs('preorder*') ? 'active' : '' }}" 
+                                href="{{ route('preorder') }}">
                                 Booking
                             </a>
                         </li>
@@ -23,7 +25,8 @@
                         {{-- Approve (Admin only) --}}
                         <li class="nav-item">
                             @if(Auth::guard('admin')->check())
-                                <a class="nav-link {{ request()->routeIs('preorder.listApprove') ? 'active' : '' }}" href="{{ route('preorder.listApprove') }}">
+                                <a class="nav-link {{ request()->routeIs('preorder.listApprove') ? 'active' : '' }}" 
+                                    href="{{ route('preorder.listApprove') }}">
                                     Approve
                                     @if($pendingCount > 0)
                                         <span class="badge bg-danger ms-1">{{ $pendingCount }}</span>
@@ -32,12 +35,13 @@
                             @endif
                         </li>
 
-                        {{-- Login / Logout --}}
-                        <li class="nav-item d-none d-md-block">
+                        {{-- Login / Logout (DIBUAT TAMPIL DI MOBILE & DESKTOP) --}}
+                        <li class="nav-item">
                             @if(Auth::guard('admin')->check())
                                 <form action="{{ route('admin.logout') }}" method="POST" style="display:inline;">
                                     @csrf
-                                    <button type="submit" class="btn btn-outline-light login-btn d-flex align-items-center gap-2">
+                                    <button type="submit" 
+                                        class="btn btn-outline-light login-btn d-flex align-items-center gap-2">
                                         <i class="fa fa-sign-out-alt"></i> Logout
                                     </button>
                                 </form>
@@ -59,6 +63,7 @@
     <nav class="navbar navbar-expand-lg sub-navbar">
         <div class="container-fluid">
             <a class="navbar-brand d-md-none" href="{{ route('home') }}">Dapur Ibu</a>
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                 aria-expanded="false" aria-label="Toggle navigation">
