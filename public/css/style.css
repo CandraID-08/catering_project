@@ -513,3 +513,14 @@ a:hover {
     border-radius: 15px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.08);
 }
+
+/* Fix posisi badge Approve di mobile & desktop */
+.main-navbar .nav-item a {
+    display: inline-flex;
+    align-items: center;
+}
+
+.main-navbar .badge {
+    position: relative;
+    top: -2px;
+}
